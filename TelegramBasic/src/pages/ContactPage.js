@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Text, TextInput } from 'react-native';
+import { View, StyleSheet, Text, TextInput, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Contact from '../components/Contact';
 
 const ContactPage = () => {
     return (
@@ -15,66 +16,77 @@ const ContactPage = () => {
                     <TextInput style={styles.search} placeholder='Search'></TextInput>
                 </View>
             </View>
-            <View style={styles.content}>
+            <FlatList
+                style={styles.content}
+                data={[1,2,2]}
+                renderItem={() => <Contact />}
+            />
 
-            </View>
+            {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: "100%",
+        height: "100%",
         flexDirection: "column"
     },
     header: {
-        flex: 1,
+        width: "100%",
+        height: "15%",
         flexDirection: "column",
-        backgroundColor:"F2F2F2"
+        backgroundColor: "F2F2F2",
+        borderBottomColor: "gray",
+        borderBottomWidth: 0.2
     },
     headerTop: {
-        flex: 1,
+        width: "100%",
+        height: "50%",
         flexDirection: "row",
-        justifyContent:"space-between",
-        alignContent:"center",
+        justifyContent: "space-between",
+        alignContent: "center",
     },
     headerBottom: {
-        flex: 1,
+        width: "100%",
+        height: "40%",
         flexDirection: "row",
-        alignItems:"center",
-        alignContent:"center",
-        justifyContent:"center"
+        alignItems: "center",
+        alignContent: "center",
+        justifyContent: "center"
     },
-    textSort:{
-        color:"dodgerblue",
-        fontSize:18,
-        alignSelf:"center",
-        marginLeft:10
+    textSort: {
+        color: "dodgerblue",
+        fontSize: 18,
+        alignSelf: "center",
+        marginLeft: 10
     },
-    textContact:{
-        color:"black",
-        fontSize:19,
-        fontWeight:"700",
-        alignSelf:"center"
+    textContact: {
+        color: "black",
+        fontSize: 19,
+        fontWeight: "700",
+        alignSelf: "center"
     },
-    iconAdd:{
-        alignSelf:"center",
-        marginRight:10
+    iconAdd: {
+        alignSelf: "center",
+        marginRight: 10
     },
-    search:{
-        width:"90%",
-        marginRight:10,
-        backgroundColor:"#eeeeee",
-        padding:1,
-        textAlign:"center",
-        borderColor:"lightgray",
-        borderWidth:0.3,
-        borderRadius:7,
-        fontSize:17,
+    search: {
+        width: "90%",
+        marginRight: 10,
+        backgroundColor: "#eeeeee",
+        padding: 1,
+        textAlign: "center",
+        borderColor: "lightgray",
+        borderWidth: 0.3,
+        borderRadius: 7,
+        fontSize: 17,
     },
     content: {
-        flex: 5,
-        backgroundColor: "blue"
+        width: "100%",
+        height: "50%",
     }
 })
 
