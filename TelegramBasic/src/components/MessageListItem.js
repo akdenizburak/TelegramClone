@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
+//değerleri prop olarak alıyoruz
 const MessageListItem = ({avatar,name,message}) => {
     return (
             <View style={styles.contact}>

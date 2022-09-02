@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
         width: "100%",
         height: 50,
         flexDirection: "row",
-
     },
     avatar: {
         width: 40,
@@ -31,8 +30,6 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         marginLeft: 10,
         textAlign: "left",
-
-
     },
     contactContent: {
         width:"80%",

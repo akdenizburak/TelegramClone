@@ -5,24 +5,29 @@ import Contact from '../components/Contact';
 
 const ContactPage = () => {
     return (
+        //en dıştaki container
         <View style={styles.container}>
+            {/* //sayfanın header bölümü */}
             <View style={styles.header}>
+                {/* //headerın üst kısmı */}
                 <View style={styles.headerTop}>
                     <Text style={styles.textSort}>Sort</Text>
                     <Text style={styles.textContact}>Contact</Text>
                     <MaterialCommunityIcons style={styles.iconAdd} name='plus' size={25} color={"dodgerblue"} />
                 </View>
+                {/* //headerın alt kısmı */}
                 <View style={styles.headerBottom}>
                     <TextInput style={styles.search} placeholder='Search'></TextInput>
                 </View>
             </View>
+            
+            {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
             <FlatList
                 style={styles.content}
                 data={[1,2,2]}
                 renderItem={() => <Contact />}
             />
 
-            {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
 
         </View>
     );

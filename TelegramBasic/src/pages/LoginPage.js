@@ -8,22 +8,25 @@ const LoginPage = () => {
     const [selectedValue, setSelectedValue] = useState("tr");
     return (
         <View style={styles.container}>
+            {/* //numara seçici */}
             <Picker
                 selectedValue={selectedValue}
                 style={{ height: 50, width: 250 }}
                 onValueChange={(itemValue) => setSelectedValue(itemValue)}
             >
+                {/* //dizideki ülkelerin tamamını dönen metot */}
                 {CountryCodes.map((event, index) => {
                     return (
                         <Picker.Item key={index} label={`${event.dial_code} ${event.name}`} value={event.code} />
                     )
                 })}
-
             </Picker>
+            {/* //input alanlar */}
             <TextInput style={styles.text} placeholder="Phone Number" keyboardType="number-pad"></TextInput>
             <TextInput style={styles.text} key={"firstName"} placeholder="First Name"></TextInput>
             <TextInput style={styles.text} key={"lastName"} placeholder="Last Name"></TextInput>
             <TextInput style={styles.text} key={"username"} placeholder="username"></TextInput>
+            {/* //sayfa geçisini sağlayan button */}
             <Pressable style={styles.button}>
                 <Text style={styles.buttonText}>SIGN UP</Text>
             </Pressable>

@@ -1,30 +1,32 @@
 import React from 'react';
 import { View, StyleSheet, Text, TextInput, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Contact from '../components/Contact';
 import MessageListItem from '../components/MessageListItem';
 
 const MessageListPage = () => {
     return (
+        //en dıştaki container
         <View style={styles.container}>
+            {/* //sayfanın header bölümü */}
             <View style={styles.header}>
+                {/* //headerın üst kısmı */}
                 <View style={styles.headerTop}>
                     <Text style={styles.textSort}>Edit</Text>
                     <Text style={styles.textContact}>Messages</Text>
                     <MaterialCommunityIcons style={styles.iconNewMessage} name='square-edit-outline' size={25} color={"dodgerblue"} />
                 </View>
+                {/* //headerın alt kısmı */}
                 <View style={styles.headerBottom}>
                     <TextInput style={styles.search} placeholder='Search'></TextInput>
                 </View>
             </View>
+
+            {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
             <FlatList
                 style={styles.content}
                 data={[1,2,2]}
                 renderItem={() => <MessageListItem />}
             />
-
-            {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
-
         </View>
     );
 }
