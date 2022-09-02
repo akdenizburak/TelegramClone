@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import CountryCodes from './../assets/CountryCodes';
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
     const [selectedValue, setSelectedValue] = useState("tr");
     return (
         <View style={styles.container}>
@@ -28,7 +28,7 @@ const LoginPage = () => {
             <TextInput style={styles.text} key={"lastName"} placeholder="Last Name"></TextInput>
             <TextInput style={styles.text} key={"username"} placeholder="username"></TextInput>
             {/* //sayfa geçisini sağlayan button */}
-            <Pressable style={styles.button}>
+            <Pressable style={styles.button} onPress={()=>{navigation.navigate('ContactPage')}}>
                 <Text style={styles.buttonText}>SIGN UP</Text>
             </Pressable>
         </View>
