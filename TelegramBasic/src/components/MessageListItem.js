@@ -2,11 +2,11 @@ import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
 //değerleri prop olarak alıyoruz
-const MessageListItem = ({avatar,name,message}) => {
+const MessageListItem = ({name="Mine Akdeniz",message="merhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldu"}) => {
     return (
             <View style={styles.contact}>
                 <View style={styles.contactAvatar}>
-                    <Image style={styles.avatar} source={avatar} />
+                    <Image style={styles.avatar} source={require("../assets/images/avatar4.jpg")} />
                 </View>
                 <View style={styles.contactContent}>
                     <Text style={styles.name}>{name}</Text>
@@ -15,8 +15,6 @@ const MessageListItem = ({avatar,name,message}) => {
             </View>
     );
 }
-
-export default MessageListItem;
 
 const styles = StyleSheet.create({
 
@@ -32,11 +30,9 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         marginLeft: 10,
         textAlign: "left",
-
-
     },
     contactContent: {
-        width:"80%",
+        width:"60%",
         flexDirection: "column",
         borderBottomColor: "lightgray",
         borderBottomWidth: 1,
@@ -51,12 +47,15 @@ const styles = StyleSheet.create({
         height:"50%",
         color: "black",
         fontSize: 16,
+        fontWeight:"bold"
     },
     message: {
         width: "100%",
         height: "50%",
         color:"black",
-        fontSize:14
+        fontSize:14,
+        padding:3
     },
 })
 
+export default MessageListItem;

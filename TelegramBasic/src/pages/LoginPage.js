@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TextInput ,Text, Pressable} from 'react-native';
+import { View, StyleSheet, TextInput, Text, Pressable } from 'react-native';
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import CountryCodes from './../assets/CountryCodes';
@@ -8,6 +8,7 @@ const LoginPage = () => {
     const [selectedValue, setSelectedValue] = useState("tr");
     return (
         <View style={styles.container}>
+            <Text style={styles.textTitle}>Your Phone Number and Information</Text>
             {/* //numara seçici */}
             <Picker
                 selectedValue={selectedValue}
@@ -39,6 +40,13 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 40,
         alignItems: "center"
+    },
+    textTitle:{
+        width: "60%",
+        fontSize:20,
+        fontWeight:"bold",
+        marginBottom:50,
+        color:"black",
     },
     text: {
         width: "60%",

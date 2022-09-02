@@ -22,13 +22,9 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "50%",
         flexDirection: "row",
-        backgroundColor: "#D6DBDF",
+        backgroundColor: "#5B2C6F",
         justifyContent: "space-around",
         alignItems: "center"
-    },
-    iconAdd: {
-        alignSelf: "center",
-        marginRight: 10
     },
     buttonDark: {
         width: "40%",

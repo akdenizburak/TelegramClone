@@ -24,7 +24,7 @@ const MessageListPage = () => {
             {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
             <FlatList
                 style={styles.content}
-                data={[1,2,2]}
+                data={[1,2,2,5]}
                 renderItem={() => <MessageListItem />}
             />
         </View>
