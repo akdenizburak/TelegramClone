@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 //değerleri prop olarak alıyoruz
 const MessageListItem = ({name="Mine Akdeniz",message="merhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldu"}) => {
@@ -11,6 +13,7 @@ const MessageListItem = ({name="Mine Akdeniz",message="merhaba nasılsın? uzun 
                 <View style={styles.contactContent}>
                     <Text style={styles.name}>{name}</Text>
                     <Text style={styles.message}>{message}</Text>
+                    <Icon style={styles.iconCheck} name="checkmark-done" size={20} color="#090" />
                 </View>
             </View>
     );
@@ -32,11 +35,11 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
     contactContent: {
-        width:"60%",
+        width:"80%",
         flexDirection: "column",
         borderBottomColor: "lightgray",
         borderBottomWidth: 1,
-        paddingVertical:5
+        paddingVertical:5,
     },
     contactAvatar:{
         width:"20%",
@@ -56,6 +59,13 @@ const styles = StyleSheet.create({
         fontSize:14,
         padding:3
     },
+    iconCheck:{
+        width:20,
+        height:20,
+        alignSelf:"flex-end",
+        marginTop:28,
+        marginRight:10,
+    }
 })
 
 export default MessageListItem;
