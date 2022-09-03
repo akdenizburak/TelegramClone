@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     header: {
         width: "100%",
-        height: "40%",
+        height: "50%",
         justifyContent: "center",
         borderBottomColor:"black",
         borderBottomWidth:0.3,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     center: {
         width: "100%",
-        height: "40%",
+        height: "30%",
         alignItems: "center",
         justifyContent: "center",
     },

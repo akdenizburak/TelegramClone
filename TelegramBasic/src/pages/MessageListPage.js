@@ -1,18 +1,23 @@
-import React from 'react';
-import { View, StyleSheet, Text, TextInput, FlatList } from 'react-native';
+import React,{useContext} from 'react';
+import { View, StyleSheet, Text, TextInput, FlatList, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MessageListItem from '../components/MessageListItem';
+import { ThemeContext } from './../context/Theme';
+import ChatList from './../components/ChatList';
 
-const MessageListPage = () => {
+
+const MessageListPage = ({navigation}) => {
+
+    const {theme}=useContext(ThemeContext);
     return (
         //en dıştaki container
-        <View style={styles.container}>
+        <View style={[styles.container,{backgroundColor: theme.backgroundColor}]}>
             {/* //sayfanın header bölümü */}
             <View style={styles.header}>
                 {/* //headerın üst kısmı */}
                 <View style={styles.headerTop}>
                     <Text style={styles.textSort}>Edit</Text>
-                    <Text style={styles.textContact}>Messages</Text>
+                    <Text style={[styles.textContact,{color:theme.color}]}>Messages</Text>
                     <MaterialCommunityIcons style={styles.iconNewMessage} name='square-edit-outline' size={25} color={"dodgerblue"} />
                 </View>
                 {/* //headerın alt kısmı */}
@@ -24,8 +29,14 @@ const MessageListPage = () => {
             {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
             <FlatList
                 style={styles.content}
-                data={[1,2,2,5]}
-                renderItem={() => <MessageListItem />}
+                data={ChatList[1].receiver}
+                
+                renderItem={({item}) => <Pressable onPress={() => navigation.navigate('ChatPage', {
+                    id: item.id,
+                    firstname: item.first_name,
+                    lastname: item.last_name,
+                    avatar: item.avatar,
+                })}>{console.log(item)}<MessageListItem name={`${item.first_name} ${item.last_name}`} avatar={item.avatar} /></Pressable>}
             />
         </View>
     );

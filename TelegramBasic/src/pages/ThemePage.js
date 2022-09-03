@@ -1,21 +1,23 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { View, StyleSheet, Pressable, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ThemeContext } from '../context/Theme';
 
 const ThemePage = () => {
+    const { toggleTheme } = useContext(ThemeContext);
     return (
         //sayfayı sarmallayan container
         <View style={styles.container}>
             {/* //koyu mod butonu */}
             <View style={styles.containerTop}>
-                <Pressable style={styles.buttonDark}>
+                <Pressable onPress={toggleTheme} style={styles.buttonDark}>
                     <Text style={styles.textDark}>Dark</Text>
                     <Icon name="moon" size={50} color="#000" />
                 </Pressable>
             </View>
             <View style={styles.containerBottom}>
                 {/* //açık mod butonu */}
-                <Pressable style={styles.buttonLight}>
+                <Pressable onPress={toggleTheme} style={styles.buttonLight}>
                     <Text style={styles.textLight}>Light</Text>
                     <Icon name="sunny" size={50} color="#fff" />
                 </Pressable>

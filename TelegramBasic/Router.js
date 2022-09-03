@@ -10,10 +10,13 @@ import ThemePage from './src/pages/ThemePage';
 import EditProfilePage from './src/pages/EditProfilePage';
 import LoginPage from './src/pages/LoginPage';
 import ChatPage from './src/pages/ChatPage';
+import { ThemeContext } from './src/context/Theme';
+import ThemeProvider from './src/provider/ThemeProvider';
 
 
 const Tab = createBottomTabNavigator();
 const Stack=createNativeStackNavigator();
+
 
 const ChatStack=()=>{
   return(
@@ -39,6 +42,7 @@ const SettingsStack=()=>{
 function Router() {
   return (
     <NavigationContainer>
+      <ThemeProvider>
       <Tab.Navigator screenOptions={{ headerShown: false }}>
         <Tab.Screen options={{
           tabBarIcon: (tabInfo) => {
@@ -74,6 +78,7 @@ function Router() {
           },
         }} name='Settings' component={SettingsStack} />
       </Tab.Navigator>
+      </ThemeProvider>
     </NavigationContainer>
   )
 }

@@ -1,18 +1,20 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ThemeContext } from './../context/Theme';
 
 
 //değerleri prop olarak alıyoruz
-const MessageListItem = ({name="Mine Akdeniz",message="merhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldumerhaba nasılsın? uzun zaman oldu"}) => {
+const MessageListItem = ({name,message,avatar}) => {
+    const {theme}=useContext(ThemeContext);
     return (
             <View style={styles.contact}>
                 <View style={styles.contactAvatar}>
-                    <Image style={styles.avatar} source={require("../assets/images/avatar4.jpg")} />
+                    <Image style={styles.avatar} source={avatar} />
                 </View>
                 <View style={styles.contactContent}>
-                    <Text style={styles.name}>{name}</Text>
-                    <Text style={styles.message}>{message}</Text>
+                    <Text style={[styles.name,{color:theme.color}]}>{name}</Text>
+                    <Text style={[styles.message,{color:theme.color}]}>{message}</Text>
                     <Icon style={styles.iconCheck} name="checkmark-done" size={20} color="#090" />
                 </View>
             </View>

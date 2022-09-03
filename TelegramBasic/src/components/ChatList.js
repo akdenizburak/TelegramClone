@@ -7,7 +7,7 @@ const ChatList = [
             "id": 1,
             "first_name": "Cassondra",
             "last_name": "Oakeby",
-            "avatar": require("../assets/images/avatar1.jpg")
+            "avatar": require("../assets/images/avatar/avatar1.jpg")
         },
         "messages": [
             {
@@ -30,7 +30,7 @@ const ChatList = [
             "id": 2,
             "first_name": "Salomon",
             "last_name": "Bissell",
-            "avatar": require("../assets/images/avatar2.jpg")
+            "avatar": require("../assets/images/avatar/avatar2.jpg")
         },
         "messages": [
             {
@@ -45,7 +45,7 @@ const ChatList = [
             "id": 3,
             "first_name": "Kale",
             "last_name": "Bagnall",
-            "avatar": require("../assets/images/avatar3.jpg")
+            "avatar": require("../assets/images/avatar/avatar3.jpg")
         },
         "messages": [
             {
@@ -80,7 +80,7 @@ const ChatList = [
             "id": 4,
             "first_name": "Izaak",
             "last_name": "Constanza",
-            "avatar": require("../assets/images/avatar4.jpg")
+            "avatar": require("../assets/images/avatar/avatar4.jpg")
         },
         "messages": [
             {

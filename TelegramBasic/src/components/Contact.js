@@ -1,15 +1,18 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
+import { ThemeContext } from '../context/Theme';
 
 const Contact = ({avatar,name,lastSeen}) => {
+    const { theme } = useContext(ThemeContext);
+
     return (
             <View style={styles.contact}>
                 <View style={styles.contactAvatar}>
                     <Image style={styles.avatar} source={avatar} />
                 </View>
                 <View style={styles.contactContent}>
-                    <Text style={styles.name}>{name}</Text>
-                    <Text style={styles.lastSeen}>{lastSeen}</Text>
+                    <Text style={[styles.name,{color:theme.color}]}>{name}</Text>
+                    <Text style={[styles.lastSeen,{color:theme.color}]}>{lastSeen}</Text>
                 </View>
             </View>
     );
@@ -50,6 +53,7 @@ const styles = StyleSheet.create({
         height:"50%",
         color: "black",
         fontSize: 16,
+        fontWeight:"bold"
     },
     lastSeen: {
         width: "100%",

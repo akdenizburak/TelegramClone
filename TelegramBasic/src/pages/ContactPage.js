@@ -1,18 +1,27 @@
-import React from 'react';
-import { View, StyleSheet, Text, TextInput, FlatList } from 'react-native';
+import React, { useContext } from 'react';
+import { View, StyleSheet, Text, TextInput, FlatList, Pressable } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Contact from '../components/Contact';
+import { ThemeContext } from '../context/Theme';
+import ContactMock from '../assets/ContactMock';
 
-const ContactPage = () => {
+const ContactPage = ({ navigation }) => {
+    const { theme } = useContext(ThemeContext);
+
     return (
         //en dıştaki container
-        <View style={styles.container}>
+        <View style={[styles.container, {
+            backgroundColor: theme.backgroundColor,
+        },
+        ]}>
             {/* //sayfanın header bölümü */}
             <View style={styles.header}>
                 {/* //headerın üst kısmı */}
                 <View style={styles.headerTop}>
                     <Text style={styles.textSort}>Sort</Text>
-                    <Text style={styles.textContact}>Contact</Text>
+                    <Text style={[styles.textContact, {
+                        color: theme.color,
+                    }]}>Contact</Text>
                     <MaterialCommunityIcons style={styles.iconAdd} name='plus' size={25} color={"dodgerblue"} />
                 </View>
                 {/* //headerın alt kısmı */}
@@ -20,16 +29,18 @@ const ContactPage = () => {
                     <TextInput style={styles.search} placeholder='Search'></TextInput>
                 </View>
             </View>
-            
+
             {/* //sohbet balonlarının bulunduğu, scrollview olan orta bölüm */}
             <FlatList
                 style={styles.content}
-                data={[1,2,2]}
-                renderItem={() => <Contact />}
-            />
-
-
-        </View>
+                data={ContactMock}
+                renderItem={({ item }) => <Pressable onPress={() => navigation.navigate('ChatPage', {
+                id: item.id,
+                firstname: item.firstname,
+                lastname: item.lastname,
+                avatar: item.avatar,
+            })}><Contact name={`${item.firstname} ${item.lastname}`} lastSeen={item.username} avatar={item.avatar} /></Pressable>}/>
+        </View >
     );
 }
 
